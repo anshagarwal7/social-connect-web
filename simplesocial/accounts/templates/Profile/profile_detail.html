@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load bootstrap3 %}
+
+{% block content %}
+    <div class="card">
+        <img src="{{ profile.profile_pic.url }}" alt="Your picture" style="width:30%;padding-top:15px;padding-left:45px;">
+        <h1 id="profilename">@{{profile.user.username}}</h1>
+        <p>{{profile.user.first_name}} {{profile.user.last_name}}</p>
+        {% if profile.gender == 'ML' %}
+        <p>MALE</p>
+        {% else %}
+        <p>FEMALE</p>
+        {% endif %}
+        <p><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;{{profile.user.email}}</p>
+        <p><span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;{{profile.contact}}</p>
+    </div>
+{% endblock %}

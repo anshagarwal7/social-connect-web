@@ -30,6 +30,7 @@
             <li><a href="{% url 'posts:create' %}">Post</a></li>
             <li><a href="{% url 'groups:all' %}">Groups</a></li>
             <li><a href="{% url 'groups:create' %}">Create Group</a></li>
+            <li><a href="{% url 'accounts:verifyprofile' username=user.username  %}">Complete Profile</a></li>
             <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
           {% else %}
             <li><a href="{% url 'groups:all' %}">Groups</a></li>
