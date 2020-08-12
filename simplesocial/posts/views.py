@@ -1,13 +1,16 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
+from django.shortcuts import redirect,render
 # Create your views here.
 
 from django.http import Http404
 from django.views import generic
 from django.contrib import messages
 from braces.views import SelectRelatedMixin
+from django.forms import ValidationError
 
 from . import models
+from groups.models import GroupMember
 from . import forms
 
 from django.contrib.auth import get_user_model
@@ -51,8 +54,19 @@ class CreatePost(LoginRequiredMixin,SelectRelatedMixin,generic.CreateView):
     def form_valid(self,form):
         self.object = form.save(commit = False)
         self.object.user = self.request.user
-        self.object.save()
-        return super().form_valid(form)
+        try:
+            membership = GroupMember.objects.filter(
+                user=self.request.user,
+                group=self.object.group
+            ).get()
+
+        except GroupMember.DoesNotExist:
+            return render(self.request,'posts/no_groupmember.html',{'username':self.object.user,'gpname':self.object.group})
+        else:
+            self.object.save()
+            return super().form_valid(form)
+
+
 
 class DeletePost(LoginRequiredMixin, SelectRelatedMixin ,generic.DeleteView):
 
