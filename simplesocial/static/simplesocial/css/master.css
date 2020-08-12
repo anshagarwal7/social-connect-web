@@ -1,8 +1,22 @@
+{% load staticfiles %}
+body
+{
+
+  background-image: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),url('/static/simplesocial/images/backgd.png');
+  background-repeat:repeat;
+  padding-left: 11em;
+  padding-right: 20em;
+  font-family:
+  Georgia, "Times New Roman",
+  Times, serif;
+
+
+}
 
 #navbar{
-  background-color: orange
+  background-color: #3b5998
 }
 
 .gpbg{
-  background-color: #5298ff
+  background-color: #3b5998;
 }

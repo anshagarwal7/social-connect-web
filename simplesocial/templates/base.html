@@ -23,19 +23,19 @@
 
     <nav class='navbar mynav navbar-fixed-top' role ='navigation'  id ='navbar' >
       <div class="container">
-        <a class ='navbar-brand mynav' href="{% url 'home' %}"> SocialConnect</a>
+        <a class ='navbar-brand mynav' href="{% url 'home' %}" style="color:white"> SocialConnect</a>
 
         <ul class ='nav navbar-nav navbar-right'>
           {% if user.is_authenticated %}
-            <li><a href="{% url 'posts:create' %}">Post</a></li>
-            <li><a href="{% url 'groups:all' %}">Groups</a></li>
-            <li><a href="{% url 'groups:create' %}">Create Group</a></li>
-            <li><a href="{% url 'accounts:verifyprofile' username=user.username  %}">Complete Profile</a></li>
-            <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
+            <li><a href="{% url 'posts:create' %}" style="color:white">Post</a></li>
+            <li><a href="{% url 'groups:all' %}" style="color:white">Groups</a></li>
+            <li><a href="{% url 'groups:create' %}" style="color:white">Create Group</a></li>
+            <li><a href="{% url 'accounts:verifyprofile' username=user.username  %}" style="color:white">Complete Profile</a></li>
+            <li><a href="{% url 'accounts:logout' %}" style="color:white">Log Out</a></li>
           {% else %}
-            <li><a href="{% url 'groups:all' %}">Groups</a></li>
-            <li><a href="{% url 'accounts:login' %}">Log In</a></li>
-            <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'groups:all' %}" style="color:white">Groups</a></li>
+            <li><a href="{% url 'accounts:login' %}" style="color:white">Log In</a></li>
+            <li><a href="{% url 'accounts:signup' %}" style="color:white">Sign Up</a></li>
           {% endif %}
         </ul>
       </div>

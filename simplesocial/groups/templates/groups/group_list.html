@@ -23,13 +23,13 @@
 
 {% block group_content %}
 
-  <div class="col-md-8 gpbg">
+  <div class="col-md-8 list-group gpbg flex-container" style="color:white">
     <hr width=50%>
     <hr width =25%>
       {% for group in object_list %}
         <a href="{% url 'groups:single' slug=group.slug %}">
-            <h3 class='list-group-item-heading' style="color:#b84848">{{group.name}}</h3>
-            <div class="list-group-item-text container-fluid">
+            <h3 class='list-group-item-heading' style="margin-left:10px;color:white">{{group.name}}</h3>
+            <div class="list-group-item-text container-fluid" style="color:white">
                 {{group.description_html|safe}}
                 <div class="row">
                   <div class="col-md-4" >
